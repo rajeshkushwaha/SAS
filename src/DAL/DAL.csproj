@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>2.6.1</Version>
+    <Description>Data Access Layer for the SAS Application</Description>
+    <Copyright></Copyright>
+    <PackageLicenseUrl>https://github.com/rajeshkushwaha/SAS</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/rajeshkushwaha/SAS</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/rajeshkushwaha/SAS.git</RepositoryUrl>
+    <Company></Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.1.2" />
+    <PackageReference Include="OpenIddict" Version="2.0.0-rc3-final" />
+    <PackageReference Include="OpenIddict.EntityFrameworkCore" Version="2.0.0-rc3-final" />
+  </ItemGroup>
+
+</Project>
