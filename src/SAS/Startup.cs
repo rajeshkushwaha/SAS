@@ -23,11 +23,12 @@ using OpenIddict.Abstractions;
 using SAS.Authorization;
 using SAS.Helpers;
 using SAS.ViewModels;
+using SASApp;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using AppPermissions = DAL.Core.ApplicationPermissions;
 
-namespace QuickApp
+namespace SASApp
 {
     public class Startup
     {

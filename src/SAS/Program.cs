@@ -14,8 +14,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using SAS.Helpers;
 using DAL;
+using SASApp;
 
-namespace QuickApp
+namespace SASApp
 {
     public class Program
     {

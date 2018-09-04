@@ -13,7 +13,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace sasApp
+namespace SASApp
 {
     // Swagger IOperationFilter implementation that will validate whether an action has an applicable Authorize attribute.
     // If it does, we add the sasapp_api scope so IdentityServer can validate permission for that scope.
