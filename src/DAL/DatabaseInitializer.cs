@@ -19,7 +19,7 @@ namespace DAL
 {
     public interface IDatabaseInitializer
     {
-        Task SeedAsync();
+        Task SeedAsync(); 
     }
 
 
