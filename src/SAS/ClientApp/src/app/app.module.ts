@@ -4,7 +4,6 @@
 // ====================================================
 
 import { NgModule, ErrorHandler } from "@angular/core";
-import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -112,7 +111,7 @@ import { UploadquestionComponent } from './components/questionadmin/uploadquesti
     QuestiontabComponent,
     AddquestionComponent,
     ViewquestionComponent,
-    UploadquestionComponent 
+    UploadquestionComponent
   ],
   providers: [
     { provide: 'BASE_URL', useFactory: getBaseUrl },
