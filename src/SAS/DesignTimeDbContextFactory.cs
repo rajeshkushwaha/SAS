@@ -30,7 +30,7 @@ namespace SasApp
 
             var builder = new DbContextOptionsBuilder<ApplicationDbContext>();
 
-            builder.UseSqlServer(configuration["ConnectionStrings:DefaultConnection"], b => b.MigrationsAssembly("QuickApp"));
+            builder.UseSqlServer(configuration["ConnectionStrings:DefaultConnection"], b => b.MigrationsAssembly("SAS"));
             builder.UseOpenIddict();
 
             return new ApplicationDbContext(builder.Options);

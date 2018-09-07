@@ -62,8 +62,10 @@ import { UserPreferencesComponent } from "./components/controls/user-preferences
 import { UsersManagementComponent } from "./components/controls/users-management.component";
 import { RolesManagementComponent } from "./components/controls/roles-management.component";
 import { RoleEditorComponent } from "./components/controls/role-editor.component";
-
-
+import { QuestiontabComponent } from './components/questionadmin/questiontab/questiontab.component';
+import { AddquestionComponent } from './components/questionadmin/addquestion/addquestion.component';
+import { ViewquestionComponent } from './components/questionadmin/viewquestion/viewquestion.component';
+import { UploadquestionComponent } from './components/questionadmin/uploadquestion/uploadquestion.component';
 
 
 @NgModule({
@@ -110,7 +112,11 @@ import { RoleEditorComponent } from "./components/controls/role-editor.component
     BootstrapToggleDirective,
     BootstrapSelectDirective,
     BootstrapDatepickerDirective,
-    GroupByPipe
+    GroupByPipe,
+    QuestiontabComponent,
+    AddquestionComponent,
+    ViewquestionComponent,
+    UploadquestionComponent 
   ],
   providers: [
     { provide: 'BASE_URL', useFactory: getBaseUrl },

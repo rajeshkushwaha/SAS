@@ -6,7 +6,7 @@
   },
   "mainMenu": {
     "Appointments": "Appointments",
-    "Customers": "Customers",
+    "Questions": "Questions",
     "Products": "Products",
     "Orders": "Orders",
     "About": "About",
@@ -14,12 +14,13 @@
   },
   "pageHeader": {
     "Dashboard": "Dashboard",
-    "Customers": "Customers",
+    "Questions": "Questions",
     "Products": "Products",
     "Orders": "Orders",
     "NotFound": "Not-Found",
     "About": "About",
-    "Settings": "Settings"
+    "Settings": "Settings",
+    "QuestionOperation":"Question Operation"
   },
   "home": {
     "NoWidgets1": "You have no widgets displayed. Goto",
@@ -176,6 +177,88 @@
       "Description": "Description",
       "Important": "Mark as important",
       "AddTask": "Add Task"
+    }
+  },
+  "addQuestion": {
+    "management": {
+      "AddQuestion": "Add Question",
+      "Search": "Search for question...",
+      "Description": "Description",
+      "Task": "Question",
+      "Delete": "Delete Question",
+      "Important": "Mark as important",
+      "HideCompleted": "Hide Completed",
+      "Technology": "Technology",
+      "Expertieslevel": "Experties",
+      "QuestionType": "Question Type",
+      "Instructions": "Please arrange the answer by using below dropdowns",
+      "IsImportant": "Is Important"
+    },
+    "editor": {
+      "NewTask": "New Task",
+      "Name": "Question",
+      "Important": "Mark as important",
+      "AddQuestion": "Add Question",
+      "HideCompleted": "Hide Completed",
+      "Description": "Description",
+      "Option1": "Option1",
+      "Option2": "Option2",
+      "Option3": "Option3",
+      "Option4": "Option4",
+      "Option5": "Option5",
+      "Answer": "Answer",
+      "Close": "Close",
+      "Option": "Option"
+    },
+    "error": {
+      "QuestionTypeRequired": "Please select question type",
+      "ExpertiesLevelRequired": "Please select experties level",
+      "TaskNameRequired": "Task name is required",
+      "Technology": "Technology is required",
+      "Option1Required": "Option1 is required"
+    },
+    "technology": {
+      "JAVA": "JAVA",
+      "DOTNET": "DotNet",
+      "HTML": "HTML",
+      "ANGULAR": "Angular",
+      "ANGULARJS": "AngularJS",
+      "MANNUALTESTING": "Mannual Testing",
+      "AUTOMATION_JAVA": "Automation with Java",
+      "AUTOMATION_CSHARP": "Automation with C#",
+      "SELNIUM": "Selenium",
+      "SELNIUM_WEBDRIVER": "Selenium with Web Driver",
+      "JAVASCRIPT": "JavaScript"
+    },
+    "expertieslevel": {
+      "Beginners": "Beginners",
+      "Intermediate": "Intermediate",
+      "Expertise": "Expertise"
+    },
+    "answer": {
+      "Option1": "Option1",
+      "Option2": "Option2",
+      "Option3": "Option3",
+      "Option4": "Option4",
+      "Option5": "Option5"
+    },
+    "questiontype": {
+      "MCSA": "MCSA (Multiple Choice Single Option)",
+      "MCMA": "MCMA (Multiple Choice Multiple Answer)",
+      "ORDER": "Order",
+      "FREETEXT": "Free Text"
+    }
+  },
+  "questionsetting": {
+    "tab": {
+      "New": "Add",
+      "View": "View",
+      "Upload": "Upload"
+    },
+    "header":{
+      "New": "Add Question",
+      "View": "View / Edit / Delete Question",
+      "Upload": "Upload Question"
     }
   }
 }

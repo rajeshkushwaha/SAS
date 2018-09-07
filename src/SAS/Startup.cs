@@ -46,7 +46,7 @@ namespace SASApp
         {
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"], b => b.MigrationsAssembly("SASApp"));
+                options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"], b => b.MigrationsAssembly("SAS"));
                 options.UseOpenIddict();
             });
 
@@ -137,7 +137,7 @@ namespace SASApp
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "QuickApp API", Version = "v1" });
+                c.SwaggerDoc("v1", new Info { Title = "SASApp API", Version = "v1" });
                 c.OperationFilter<AuthorizeCheckOperationFilter>();
                 c.AddSecurityDefinition("oauth2", new OAuth2Scheme
                 {
@@ -226,8 +226,8 @@ namespace SASApp
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.DocumentTitle = "Swagger UI - Quick Application";
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "QuickApp API V1");
+                c.DocumentTitle = "Swagger UI - SAS Application";
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "SASApp API V1");
             });
 
 
