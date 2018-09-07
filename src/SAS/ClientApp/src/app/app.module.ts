@@ -46,7 +46,6 @@ import { AppComponent } from "./components/app.component";
 import { LoginComponent } from "./components/login/login.component";
 import { HomeComponent } from "./components/home/home.component";
 import { CustomersComponent } from "./components/customers/customers.component";
-import { ProductsComponent } from "./components/products/products.component";
 import { OrdersComponent } from "./components/orders/orders.component";
 import { SettingsComponent } from "./components/settings/settings.component";
 import { AboutComponent } from "./components/about/about.component";
@@ -94,8 +93,7 @@ import { UploadquestionComponent } from './components/questionadmin/uploadquesti
     AppComponent,
     LoginComponent,
     HomeComponent,
-    CustomersComponent,
-    ProductsComponent,
+    CustomersComponent,    
     OrdersComponent,
     SettingsComponent,
     UsersManagementComponent, UserInfoComponent, UserPreferencesComponent,
