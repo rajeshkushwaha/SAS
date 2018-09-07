@@ -6,6 +6,7 @@
 import { NgModule, ErrorHandler } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -85,7 +86,8 @@ import { UploadquestionComponent } from './components/questionadmin/uploadquesti
     BsDropdownModule.forRoot(),
     CarouselModule.forRoot(),
     ModalModule.forRoot(),
-    ChartsModule
+    ChartsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
