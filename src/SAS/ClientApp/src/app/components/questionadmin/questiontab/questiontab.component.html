@@ -1,0 +1,52 @@
+<div class="container">
+  <header class="pageHeader">
+    <h3><i class="fa fa-cog fa-lg page-caption" aria-hidden="true"></i> {{'pageHeader.QuestionOperation' | translate}}</h3>
+  </header>
+
+  <div [@fadeInOut] class="row">
+    <div class="col-sm-2 side-menu">
+      <ul bootstrapTab #tab="bootstrap-tab" class="nav nav-tabs tabs-left" (showBSTab)="onShowTab($event)">
+        <li class="active">
+          <a id="newTab" [routerLink]="[]" fragment="new" href="#new" data-toggle="tab"><i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i> {{'questionsetting.tab.New' | translate}}</a>
+        </li>
+        <li>
+          <a id="viewTab" [routerLink]="[]" fragment="view" href="#view" data-toggle="tab"><i class="fa fa-sliders fa-fw" aria-hidden="true"></i> {{'questionsetting.tab.View' | translate}}</a>
+        </li>
+        <li [hidden]="!canViewUsers">
+          <a id="uploadTab" [routerLink]="[]" fragment="upload" href="#upload" data-toggle="tab"><i class="fa fa-users fa-fw" aria-hidden="true"></i> {{'questionsetting.tab.Upload' | translate}}</a>
+        </li>        
+      </ul>
+    </div>
+    <div class="col-sm-10">
+      <div class="tab-content">
+        <div class="tab-pane active" id="new">
+          <h4>{{'questionsetting.header.New' | translate}}</h4>
+          <hr class="separator-hr" />
+          <!-- *ngIf="isProfileActivated" -->
+          <div [@fadeInOut]  class="content-container">
+            <addquestion></addquestion>
+          </div>
+        </div>
+
+        <div class="tab-pane" id="view">
+          <h4>{{'questionsetting.header.View' | translate}}</h4>
+          <hr class="separator-hr" />
+          <!-- *ngIf="isPreferencesActivated" -->
+          <div [@fadeInOut]  class="content-container">
+            <viewquestion></viewquestion>
+          </div>
+        </div>
+
+        <div class="tab-pane" id="upload">
+          <h4>{{'questionsetting.header.Upload' | translate}}</h4>
+          <hr class="separator-hr" />
+          <!-- *ngIf="canViewUsers && isUsersActivated" -->
+          <div [@fadeInOut]  class="content-container">
+            <uploadquestion></uploadquestion>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
