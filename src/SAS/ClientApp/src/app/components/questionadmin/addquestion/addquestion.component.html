@@ -1,4 +1,344 @@
-<label>
-  Name:
-  <input type="text" [formControl]="name">
-</label>
+<form [formGroup]="questForm" (ngSubmit)="onSubmit()">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{'addQuestion.management.AddQuestion' | translate}}</h3>
+    </div>
+    <div class="panel-body">
+      <!-- Question Start -->
+      <div class="form-group">
+        <label for="question">{{'addQuestion.management.Question' | translate}}</label>
+        <input type="text" id="question" class="form-control" placeholder="{{'addQuestion.palceholdertext.NewQuestion' | translate}}"
+          formControlName="question">
+      </div>
+      <!-- Question End -->
+
+      <!-- Experties Level Start -->
+      <div class="form-group">
+        <label for="">{{'addQuestion.management.Expertieslevel' | translate}}</label>
+        <div class="form-control">
+          <label for="expertieslevelBeginner" class="radio-inline">
+            <input id="expertieslevelBeginner" value="{{'addQuestion.expertieslevel.Beginners'| translate}}" type="radio" class="from-control"
+              formControlName="expertieslevel">{{'addQuestion.expertieslevel.Beginners'| translate}}
+          </label>
+          <label for="expertieslevelIntermediate" class="radio-inline">
+            <input id="expertieslevelIntermediate" value="{{'addQuestion.expertieslevel.Intermediate'| translate}}" type="radio" class="from-control"
+              formControlName="expertieslevel">{{'addQuestion.expertieslevel.Intermediate'| translate}}
+          </label>
+          <label for="expertieslevelExpertise" class="radio-inline">
+            <input id="expertieslevelExpertise" value="{{'addQuestion.expertieslevel.Expertise'| translate}}" type="radio" class="from-control"
+              formControlName="expertieslevel">{{'addQuestion.expertieslevel.Expertise'| translate}}
+          </label>
+        </div>
+      </div>
+      <!-- Expertiex Level End -->
+
+      <!-- Question Type Section Start -->
+      <div class="form-group">
+        <label for="">{{'addQuestion.management.QuestionType' | translate}}</label>
+        <div class="form-control">
+          <label for="questionTypeMCSA" class="radio-inline">
+            <input id="questionTypeMCSA" value="MCSA" type="radio" class="from-control" formControlName="questiontype">{{'addQuestion.questiontype.MCSA'|
+            translate}}
+          </label>
+          <label for="questionTypeMCMA" class="radio-inline">
+            <input id="questionTypeMCMA" value="MCMA" type="radio" class="from-control" formControlName="questiontype">{{'addQuestion.questiontype.MCMA'|
+            translate}}
+          </label>
+          <label for="questionTypeORDER" class="radio-inline">
+            <input id="questionTypeORDER" value="ORDER" type="radio" class="from-control" formControlName="questiontype">{{'addQuestion.questiontype.ORDER'
+            | translate}}
+          </label>
+          <label for="questionTypeFREETEXT" class="radio-inline">
+            <input id="questionTypeFREETEXT" value="FREETEXT" type="radio" class="from-control" formControlName="questiontype">{{'addQuestion.questiontype.FREETEXT'
+            | translate}}
+          </label>
+        </div>
+      </div>
+      <!-- Question Type Section End -->
+
+      <!-- Technology Type Section Start -->
+      <div class="form-group">
+        <!-- <label for="">{{'addQuestion.answer.Option1' | translate}}</label> -->
+        <div class="row control-box">
+          <div class="col-sm-12">
+            <label for="question">{{'addQuestion.management.Technology' | translate}}</label>
+            <select class="selectpicker form-control" data-live-search="true" data-actions-box="false" data-live-search-placeholder="Search..."
+              bootstrapSelect title="Select Technology" formControlName="technology">
+              <option value="{{'addQuestion.technology.JAVA' | translate}}">{{'addQuestion.technology.JAVA' | translate}}</option>
+              <option value="{{'addQuestion.technology.HTML' | translate}}">{{'addQuestion.technology.HTML' | translate}}</option>
+              <option value="{{'addQuestion.technology.ANGULAR' | translate}}">{{'addQuestion.technology.ANGULAR' | translate}}</option>
+              <option value="{{'addQuestion.technology.ANGULARJS' | translate}}">{{'addQuestion.technology.ANGULARJS' | translate}}</option>
+              <option value="{{'addQuestion.technology.MANNUALTESTING' | translate}}">{{'addQuestion.technology.MANNUALTESTING'
+                | translate}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- END -->
+
+      <div *ngIf="questForm.controls['questiontype'].value!=undefined">
+        <!-- If MCSA Selected Start -->
+        <div formGroupName="answeroptionmcsa" *ngIf="questForm.controls['questiontype'].value=='MCSA' || questForm.controls['questiontype'].value=='ORDER'">
+          <div class="form-group">
+            <label for="question">{{'addQuestion.management.AvilableAnswerOptions' | translate}}</label>
+          </div>
+
+          <div class="form-group">
+            <div class="row control-box">
+              <div class="col-sm-12">
+                <input type="text" id="answerOption1" class="form-control" placeholder="{{'addQuestion.answer.Option1' | translate}}" formControlName="option1">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <!-- <label for="">{{'addQuestion.answer.Option1' | translate}}</label> -->
+            <div class="row control-box">
+              <div class="col-sm-12">
+                <input type="text" id="answerOption2" class="form-control" placeholder="{{'addQuestion.answer.Option2' | translate}}" formControlName="option2">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <!-- <label for="">{{'addQuestion.answer.Option1' | translate}}</label> -->
+            <div class="row control-box">
+              <div class="col-sm-12">
+                <input type="text" id="answerOption3" class="form-control" placeholder="{{'addQuestion.answer.Option3' | translate}}" formControlName="option3">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <!-- <label for="">{{'addQuestion.answer.Option1' | translate}}</label> -->
+            <div class="row control-box">
+              <div class="col-sm-12">
+                <input type="text" id="answerOption4" class="form-control" placeholder="{{'addQuestion.answer.Option4' | translate}}" formControlName="option4">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <!-- <label for="">{{'addQuestion.answer.Option1' | translate}}</label> -->
+            <div class="row control-box">
+              <div class="col-sm-12">
+                <input type="text" id="answerOption5" class="form-control" placeholder="{{'addQuestion.answer.Option5' | translate}}" formControlName="option5">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END -->
+
+        <!-- MCMA Start -->
+        <div formGroupName="correctanswermcma" *ngIf="questForm.controls['questiontype'].value=='MCMA'">
+          <div class="form-group">
+            <label for="answerOption1">{{'addQuestion.management.OptionAndCorrectOption' | translate}}</label>
+          </div>
+
+          <div class="form-group">            
+            <div class="row control-box">
+              <div class="col-sm-11">
+                <input type="text" id="answerOption1" class="form-control" placeholder="{{'addQuestion.answer.Option1' | translate}}" formControlName="option1">
+              </div>
+              <div class="col-sm-1">
+                <input type="checkbox" id="answerChkOption1" class="form-control" formControlName="correctansweroption1">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">            
+            <div class="row control-box">
+              <div class="col-sm-11">
+                <input type="text" id="answerOption2" class="form-control" placeholder="{{'addQuestion.answer.Option2' | translate}}" formControlName="option2">
+              </div>
+              <div class="col-sm-1">
+                <input type="checkbox" id="answerChkOption2" class="form-control" formControlName="correctansweroption2">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <!-- <label for="">{{'addQuestion.answer.Option1' | translate}}</label> -->
+            <div class="row control-box">
+              <div class="col-sm-11">
+                <input type="text" id="answerOption3" class="form-control" placeholder="{{'addQuestion.answer.Option3' | translate}}" formControlName="option3">
+              </div>
+              <div class="col-sm-1">
+                <input type="checkbox" id="answerChkOption3" class="form-control" formControlName="correctansweroption3">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <!-- <label for="">{{'addQuestion.answer.Option1' | translate}}</label> -->
+            <div class="row control-box">
+              <div class="col-sm-11">
+                <input type="text" id="answerOption4" class="form-control" placeholder="{{'addQuestion.answer.Option4' | translate}}" formControlName="option4">
+              </div>
+              <div class="col-sm-1">
+                <input type="checkbox" id="answerChkOption4" class="form-control" formControlName="correctansweroption4">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <!-- <label for="">{{'addQuestion.answer.Option1' | translate}}</label> -->
+            <div class="row control-box">
+              <div class="col-sm-11">
+                <input type="text" id="answerOption5" class="form-control" placeholder="{{'addQuestion.answer.Option5' | translate}}" formControlName="option5">
+              </div>
+              <div class="col-sm-1">
+                <input type="checkbox" id="answerChkOption5" class="form-control" formControlName="correctansweroption5">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END -->
+
+        <!-- Correct Answer Start will dispaly only for MCSA-->
+        <div class="form-group" *ngIf="questForm.controls['questiontype'].value=='MCSA'">
+          <div class="row control-box">
+            <div class="col-sm-12">
+              <label for="question">{{'addQuestion.management.CorrectAnswer' | translate}}</label>
+              <select class="selectpicker form-control" data-live-search="true" data-actions-box="false" data-live-search-placeholder="Search..."
+                bootstrapSelect title="Select Correct Answer" formControlName="correctanswermcsa">
+                <option value="{{'addQuestion.answer.Option1' | translate}}">{{'addQuestion.answer.Option1' | translate}}</option>
+                <option value="{{'addQuestion.answer.Option2' | translate}}">{{'addQuestion.answer.Option2' | translate}}</option>
+                <option value="{{'addQuestion.answer.Option3' | translate}}">{{'addQuestion.answer.Option3' | translate}}</option>
+                <option value="{{'addQuestion.answer.Option4' | translate}}">{{'addQuestion.answer.Option4' | translate}}</option>
+                <option value="{{'addQuestion.answer.Option5' | translate}}">{{'addQuestion.answer.Option5' | translate}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- END -->
+
+        <!-- If Order Selected Start -->
+        <div formGroupName="correctorderoption" *ngIf="questForm.controls['questiontype'].value=='ORDER'">
+          <div class="form-group">
+            <div class="row control-box">
+              <div class="col-sm-4">
+                <label for="">{{'addQuestion.management.SelectOrder' | translate}}</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row control-box">
+              <div class="col-sm-11">
+                <select id="correctOption1" class="selectpicker form-control" data-live-search="true" data-actions-box="false" data-live-search-placeholder="Search..."
+                  bootstrapSelect title="Select Correct Answer" formControlName="correctorderoption1">
+                  <option value="{{'addQuestion.answer.Option1' | translate}}">{{'addQuestion.answer.Option1' | translate}}</option>
+                  <option value="{{'addQuestion.answer.Option2' | translate}}">{{'addQuestion.answer.Option2' | translate}}</option>
+                  <option value="{{'addQuestion.answer.Option3' | translate}}">{{'addQuestion.answer.Option3' | translate}}</option>
+                  <option value="{{'addQuestion.answer.Option4' | translate}}">{{'addQuestion.answer.Option4' | translate}}</option>
+                  <option value="{{'addQuestion.answer.Option5' | translate}}">{{'addQuestion.answer.Option5' | translate}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row control-box">
+              <div class="col-sm-11">
+                <select id="correctOption2" class="selectpicker form-control" data-live-search="true" data-actions-box="false" data-live-search-placeholder="Search..."
+                  bootstrapSelect title="Select Correct Answer" formControlName="correctorderoption2">
+                  <option value="{{'addQuestion.answer.Option1' | translate}}">{{'addQuestion.answer.Option1' | translate}}</option>
+                  <option value="{{'addQuestion.answer.Option2' | translate}}">{{'addQuestion.answer.Option2' | translate}}</option>
+                  <option value="{{'addQuestion.answer.Option3' | translate}}">{{'addQuestion.answer.Option3' | translate}}</option>
+                  <option value="{{'addQuestion.answer.Option4' | translate}}">{{'addQuestion.answer.Option4' | translate}}</option>
+                  <option value="{{'addQuestion.answer.Option5' | translate}}">{{'addQuestion.answer.Option5' | translate}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <!-- <label for="">{{'addQuestion.answer.Option1' | translate}}</label> -->
+            <div class="row control-box">
+              <div class="col-sm-11">
+                <select id="correctOption3" class="selectpicker form-control" data-live-search="true" data-actions-box="false" data-live-search-placeholder="Search..."
+                  bootstrapSelect title="Select Correct Answer" formControlName="correctorderoption3">
+                  <option value="{{'addQuestion.answer.Option1' | translate}}">{{'addQuestion.answer.Option1' | translate}}</option>
+                  <option value="{{'addQuestion.answer.Option2' | translate}}">{{'addQuestion.answer.Option2' | translate}}</option>
+                  <option value="{{'addQuestion.answer.Option3' | translate}}">{{'addQuestion.answer.Option3' | translate}}</option>
+                  <option value="{{'addQuestion.answer.Option4' | translate}}">{{'addQuestion.answer.Option4' | translate}}</option>
+                  <option value="{{'addQuestion.answer.Option5' | translate}}">{{'addQuestion.answer.Option5' | translate}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row control-box">
+              <div class="col-sm-11">
+                <select id="correctOption4" class="selectpicker form-control" data-live-search="true" data-actions-box="false" data-live-search-placeholder="Search..."
+                  bootstrapSelect title="Select Correct Answer" formControlName="correctorderoption4">
+                  <option value="{{'addQuestion.answer.Option1' | translate}}">{{'addQuestion.answer.Option1' | translate}}</option>
+                  <option value="{{'addQuestion.answer.Option2' | translate}}">{{'addQuestion.answer.Option2' | translate}}</option>
+                  <option value="{{'addQuestion.answer.Option3' | translate}}">{{'addQuestion.answer.Option3' | translate}}</option>
+                  <option value="{{'addQuestion.answer.Option4' | translate}}">{{'addQuestion.answer.Option4' | translate}}</option>
+                  <option value="{{'addQuestion.answer.Option5' | translate}}">{{'addQuestion.answer.Option5' | translate}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row control-box">
+              <div class="col-sm-11">
+                <select id="correctOption5" class="selectpicker form-control" data-live-search="true" data-actions-box="false" data-live-search-placeholder="Search..."
+                  bootstrapSelect title="Select Correct Answer" formControlName="correctorderoption5">
+                  <option value="{{'addQuestion.answer.Option1' | translate}}">{{'addQuestion.answer.Option1' | translate}}</option>
+                  <option value="{{'addQuestion.answer.Option2' | translate}}">{{'addQuestion.answer.Option2' | translate}}</option>
+                  <option value="{{'addQuestion.answer.Option3' | translate}}">{{'addQuestion.answer.Option3' | translate}}</option>
+                  <option value="{{'addQuestion.answer.Option4' | translate}}">{{'addQuestion.answer.Option4' | translate}}</option>
+                  <option value="{{'addQuestion.answer.Option5' | translate}}">{{'addQuestion.answer.Option5' | translate}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END -->
+
+        <!-- If FREE TEXT Selected Start -->
+        <div *ngIf="questForm.controls['questiontype'].value=='FREETEXT'">
+          <div class="form-group">
+            <label for="question">{{'addQuestion.management.WriteYourAnswer' | translate}}</label>
+          </div>
+          <div class="form-group">
+            <div class="row control-box">
+              <div class="col-sm-11">
+                <textarea rows="4" cols="100" class="form-control" placeholder="{{'addQuestion.management.WriteYourAnswer' | translate}}"
+                  formControlName="freetext"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END -->
+
+        <!-- IsImportant Question Start -->
+        <div class="form-group">
+          <div class="row control-box">
+            <div class="col-sm-2">
+              <label for="">{{'addQuestion.management.IsImportant' | translate}}</label>
+            </div>
+            <div class="col-sm-1">
+              <input type="checkbox" id="isImportantChk" class="form-control" formControlName="isimportant">
+            </div>
+          </div>
+        </div>
+        <!-- END -->
+      </div>
+    </div>
+
+    <!-- Submit Section Start -->
+    <div class="panel-footer">
+      <div class="row control-box">
+        <div class="col-sm-1" >
+          <button class="btn btn-primary" type="submit">{{'addQuestion.management.Save' | translate}}</button>
+        </div>
+        <div class="col-sm-1">
+          <button class="btn btn-primary" type="reset">{{'addQuestion.management.Reset' | translate}}</button>
+        </div>
+      </div>
+    </div>
+    <!-- Submit Section End -->
+  </div>
+  {{questForm.controls.value}}
+</form>

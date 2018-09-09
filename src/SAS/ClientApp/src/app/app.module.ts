@@ -64,6 +64,8 @@ import { QuestiontabComponent } from './components/questionadmin/questiontab/que
 import { AddquestionComponent } from './components/questionadmin/addquestion/addquestion.component';
 import { ViewquestionComponent } from './components/questionadmin/viewquestion/viewquestion.component';
 import { UploadquestionComponent } from './components/questionadmin/uploadquestion/uploadquestion.component';
+import { QuestionService } from "./services/question.service";
+import { QuestionEndpoint } from "./services/question-endpoint.service";
 
 
 @NgModule({
@@ -127,7 +129,9 @@ import { UploadquestionComponent } from './components/questionadmin/uploadquesti
     AccountService,
     AccountEndpoint,
     LocalStoreManager,
-    EndpointFactory
+    EndpointFactory,
+    QuestionService,
+    QuestionEndpoint
   ],
   bootstrap: [AppComponent]
 })

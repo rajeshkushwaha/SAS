@@ -184,15 +184,25 @@
       "AddQuestion": "Add Question",
       "Search": "Search for question...",
       "Description": "Description",
-      "Task": "Question",
+      "Question": "Question",
       "Delete": "Delete Question",
       "Important": "Mark as important",
       "HideCompleted": "Hide Completed",
       "Technology": "Technology",
-      "Expertieslevel": "Experties",
+      "Expertieslevel": "Experties Level",
       "QuestionType": "Question Type",
       "Instructions": "Please arrange the answer by using below dropdowns",
-      "IsImportant": "Is Important"
+      "IsImportant": "Is Important",
+      "Save":"Save",
+      "Reset":"Reset",
+      "AvilableAnswerOptions":"Answers Options",
+      "CorrectAnswer":"Select Correct Answer",
+      "SelectOrder":"Select Correct Order",
+      "WriteYourAnswer":"Write your answer here",
+      "OptionAndCorrectOption":"Please enter answer option and check correct answer"
+    },
+    "palceholdertext":{
+      "NewQuestion":"Please enter question"
     },
     "editor": {
       "NewTask": "New Task",
