@@ -19,3 +19,5 @@ Version.cpp
 */obj/*
 *.dll
 
+/.vs
+/src/.vscode
