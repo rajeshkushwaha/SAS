@@ -57,6 +57,9 @@ namespace SAS.ViewModels
 
             CreateMap<Order, OrderViewModel>()
                 .ReverseMap();
+
+            CreateMap<Question, QuestionViewModel>()
+                .ReverseMap();
         }
     }
 }

@@ -33,17 +33,13 @@ namespace SAS.Controllers
             _emailer = emailer;
         }
 
-
-
         // GET: api/values
-        [HttpGet]
-        public IActionResult Get()
-        {
-            var allCustomers = _unitOfWork.Customers.GetAllCustomersData();
-            return Ok(Mapper.Map<IEnumerable<CustomerViewModel>>(allCustomers));
-        }
-
-
+        //[HttpGet]
+        //public IActionResult Get()
+        //{
+        //    var allCustomers = _unitOfWork.Customers.GetAllCustomersData();
+        //    return Ok(Mapper.Map<IEnumerable<CustomerViewModel>>(allCustomers));
+        //}
 
         [HttpGet("throw")]
         public IEnumerable<CustomerViewModel> Throw()
@@ -51,12 +47,10 @@ namespace SAS.Controllers
             throw new InvalidOperationException("This is a test exception: " + DateTime.Now);
         }
 
-
-
         [HttpGet("email")]
         public async Task<string> Email()
         {
-            string recepientName = "QickApp Tester"; //         <===== Put the recepient's name here
+            string recepientName = "SAS Tester"; //         <===== Put the recepient's name here
             string recepientEmail = "test@sas.com"; //   <===== Put the recepient's email here
 
             string message = EmailTemplates.GetTestEmail(recepientName, DateTime.UtcNow);
@@ -69,8 +63,6 @@ namespace SAS.Controllers
             return "Error: " + errorMsg;
         }
 
-
-
         // GET api/values/5
         [HttpGet("{id}")]
         public string Get(int id)
@@ -78,23 +70,17 @@ namespace SAS.Controllers
             return "value: " + id;
         }
 
-
-
         // POST api/values
         [HttpPost]
         public void Post([FromBody]string value)
         {
         }
 
-
-
         // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
         }
-
-
 
         // DELETE api/values/5
         [HttpDelete("{id}")]

@@ -26,6 +26,15 @@ namespace DAL.Core
         public static ApplicationPermission ManageRoles = new ApplicationPermission("Manage Roles", "roles.manage", RolesPermissionGroupName, "Permission to create, delete and modify roles");
         public static ApplicationPermission AssignRoles = new ApplicationPermission("Assign Roles", "roles.assign", RolesPermissionGroupName, "Permission to assign roles to users");
 
+        /// <summary>
+        /// Below all the question related permission
+        /// </summary>
+
+        public const string QuestionsPermissionGroupName = "Question Permissions";
+        public static ApplicationPermission ViewQuestions = new ApplicationPermission("View Questions", "questions.view", QuestionsPermissionGroupName, "Permission to view available questions");
+        public static ApplicationPermission ManageQuestions = new ApplicationPermission("Manage Questions", "questions.manage", QuestionsPermissionGroupName, "Permission to create, delete and modify questions");
+        public static ApplicationPermission AssignQuestions = new ApplicationPermission("Assign Questions", "questions.assign", QuestionsPermissionGroupName, "Permission to assign questions to users");
+
 
         static ApplicationPermissions()
         {
@@ -36,7 +45,11 @@ namespace DAL.Core
 
                 ViewRoles,
                 ManageRoles,
-                AssignRoles
+                AssignRoles,
+
+                ViewQuestions,
+                ManageQuestions,
+                AssignQuestions
             };
 
             AllPermissions = allPermissions.AsReadOnly();
@@ -59,7 +72,7 @@ namespace DAL.Core
 
         public static string[] GetAdministrativePermissionValues()
         {
-            return new string[] { ManageUsers, ManageRoles, AssignRoles };
+            return new string[] { ManageUsers, ManageRoles, AssignRoles, ManageQuestions,AssignQuestions };
         }
     }
 

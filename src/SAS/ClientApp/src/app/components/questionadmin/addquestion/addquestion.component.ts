@@ -79,7 +79,8 @@ export class AddquestionComponent implements OnInit {
         option2: [null, Validators.required],
         option3: [],
         option4: [],
-        option5: []
+        option5: [],
+        correctanswermcsa: [null, Validators.required]
       }),
       correctanswermcsa: [null, Validators.required], //Correct answer for MCSA
       correctanswermcma: this._formBuilder.group({       //Options and answers
@@ -114,7 +115,7 @@ export class AddquestionComponent implements OnInit {
     this.question=this.questForm.value;
     
     if (this.isNewQuestion) {
-      this.questionService.newQuestion(this.question).subscribe(role => this.saveSuccessHelper(role), error => this.saveFailedHelper(error));
+      this.questionService.newQuestion(this.question).subscribe(quest => this.saveSuccessHelper(quest), error => this.saveFailedHelper(error));
     }
     console.log(this.questForm.value);
   }

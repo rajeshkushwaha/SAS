@@ -30,6 +30,11 @@ namespace DAL.Repositories
             _entities.Add(entity);
         }
 
+        public virtual async Task AddAsync(TEntity entity)
+        {
+            await _entities.AddAsync(entity);
+        }
+
         public virtual void AddRange(IEnumerable<TEntity> entities)
         {
             _entities.AddRange(entities);

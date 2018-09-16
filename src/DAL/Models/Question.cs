@@ -2,39 +2,32 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace SAS.ViewModels
+namespace DAL.Models
 {
-    public class QuestionViewModel
+    public class Question: AuditableEntity
     {
         [Key]
         public int QuestionId { get; set; }
-        [Required(ErrorMessage ="Question is required")]
+        [Required(ErrorMessage = "Question is required")]
         public string question { get; set; }
 
-        [Required(ErrorMessage ="Experties level is required")]
+        [Required(ErrorMessage = "Experties level is required")]
         public string expertieslevel { get; set; }
 
-        [Required(ErrorMessage ="Question type is required")]
+        [Required(ErrorMessage = "Question type is required")]
         public string questiontype { get; set; }
 
-        [Required(ErrorMessage ="Technology is required")]
+        [Required(ErrorMessage = "Technology is required")]
         public string technology { get; set; }
 
         public Answeroptionmcsa answeroptionmcsa { get; set; }
+        
         public Correctanswermcma correctanswermcma { get; set; }
         public Correctorderoption correctorderoption { get; set; }
         public string freetextanswer { get; set; }
         public bool isimportant { get; set; }
-
-        [MaxLength(256)]
-        public string CreatedBy { get; set; }
-        [MaxLength(256)]
-        public string UpdatedBy { get; set; }
-        public DateTime UpdatedDate { get; set; }
-        public DateTime CreatedDate { get; set; }
     }
 
     public class Answeroptionmcsa

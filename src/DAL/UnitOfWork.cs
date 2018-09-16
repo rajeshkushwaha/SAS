@@ -17,62 +17,68 @@ namespace DAL
     {
         readonly ApplicationDbContext _context;
 
-        ICustomerRepository _customers;
-        IProductRepository _products;
-        IOrdersRepository _orders;
-
-
+        //ICustomerRepository _customers;
+        //IProductRepository _products;
+        //IOrdersRepository _orders;
+        IQuestionRepository _questions;
 
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
         }
 
+        //public ICustomerRepository Customers
+        //{
+        //    get
+        //    {
+        //        if (_customers == null)
+        //            _customers = new CustomerRepository(_context);
 
+        //        return _customers;
+        //    }
+        //}
 
-        public ICustomerRepository Customers
+        //public IProductRepository Products
+        //{
+        //    get
+        //    {
+        //        if (_products == null)
+        //            _products = new ProductRepository(_context);
+
+        //        return _products;
+        //    }
+        //}
+
+        //public IOrdersRepository Orders
+        //{
+        //    get
+        //    {
+        //        if (_orders == null)
+        //            _orders = new OrdersRepository(_context);
+
+        //        return _orders;
+        //    }
+        //}
+
+        public IQuestionRepository Questions
         {
             get
             {
-                if (_customers == null)
-                    _customers = new CustomerRepository(_context);
+                if (_questions == null)
+                    _questions = new QuestionRepository(_context);
 
-                return _customers;
+                return _questions;
             }
         }
-
-
-
-        public IProductRepository Products
-        {
-            get
-            {
-                if (_products == null)
-                    _products = new ProductRepository(_context);
-
-                return _products;
-            }
-        }
-
-
-
-        public IOrdersRepository Orders
-        {
-            get
-            {
-                if (_orders == null)
-                    _orders = new OrdersRepository(_context);
-
-                return _orders;
-            }
-        }
-
-
-
 
         public int SaveChanges()
         {
             return _context.SaveChanges();
+        }
+
+        public async Task<int> SaveChangesAsync()
+        {
+            return await _context.SaveChangesAsync();
         }
     }
 }
