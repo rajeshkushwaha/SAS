@@ -66,6 +66,7 @@ import { ViewquestionComponent } from './components/questionadmin/viewquestion/v
 import { UploadquestionComponent } from './components/questionadmin/uploadquestion/uploadquestion.component';
 import { QuestionService } from "./services/question.service";
 import { QuestionEndpoint } from "./services/question-endpoint.service";
+import { InstructionsComponent } from './components/instructions/instructions.component';
 
 
 @NgModule({
@@ -115,7 +116,8 @@ import { QuestionEndpoint } from "./services/question-endpoint.service";
     QuestiontabComponent,
     AddquestionComponent,
     ViewquestionComponent,
-    UploadquestionComponent
+    UploadquestionComponent,
+    InstructionsComponent
   ],
   providers: [
     { provide: 'BASE_URL', useFactory: getBaseUrl },

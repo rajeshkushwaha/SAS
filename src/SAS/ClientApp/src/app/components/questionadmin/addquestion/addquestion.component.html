@@ -64,12 +64,7 @@
             <label for="question">{{'addQuestion.management.Technology' | translate}}</label>
             <select class="selectpicker form-control" data-live-search="true" data-actions-box="false" data-live-search-placeholder="Search..."
               bootstrapSelect title="Select Technology" formControlName="technology">
-              <option value="{{'addQuestion.technology.JAVA' | translate}}">{{'addQuestion.technology.JAVA' | translate}}</option>
-              <option value="{{'addQuestion.technology.HTML' | translate}}">{{'addQuestion.technology.HTML' | translate}}</option>
-              <option value="{{'addQuestion.technology.ANGULAR' | translate}}">{{'addQuestion.technology.ANGULAR' | translate}}</option>
-              <option value="{{'addQuestion.technology.ANGULARJS' | translate}}">{{'addQuestion.technology.ANGULARJS' | translate}}</option>
-              <option value="{{'addQuestion.technology.MANNUALTESTING' | translate}}">{{'addQuestion.technology.MANNUALTESTING'
-                | translate}}</option>
+              <option *ngFor="let technology of technologies" [value]="technology">{{technology}}</option>              
             </select>
           </div>
         </div>
@@ -330,8 +325,8 @@
     <!-- Submit Section Start -->
     <div class="panel-footer">
       <div class="row control-box">
-        <div class="col-sm-1" >
-          <button class="btn btn-primary" type="submit">{{'addQuestion.management.Save' | translate}}</button>
+        <div class="col-sm-1">
+          <button disabled="!questForm.controls.valid" class="btn btn-primary" type="submit">{{'addQuestion.management.Save' | translate}}</button>
         </div>
         <div class="col-sm-1">
           <button class="btn btn-primary" type="reset">{{'addQuestion.management.Reset' | translate}}</button>
@@ -339,6 +334,5 @@
       </div>
     </div>
     <!-- Submit Section End -->
-  </div>
-  {{questForm.controls.value}}
+  </div>  
 </form>

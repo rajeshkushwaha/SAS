@@ -57,7 +57,34 @@ export class AddquestionComponent implements OnInit {
   public changesSavedCallback: () => void;
   public changesFailedCallback: () => void;
   public changesCancelledCallback: () => void;
-  private editingRoleName: string;
+  private editingRoleName: string;  
+
+  technologies:string[]=[
+    'Java',
+    'Angular',
+    'AngualrJS',
+    'HTML',
+    'NodeJS',
+    'DotNet',
+    'DotNet Core',
+    'ASP.NET MVC',
+    'C',
+    'C++',
+    'C#',
+    'Python',
+    'Manual Testing',
+    'Automation Testing',
+    'Selenium',
+    'Selenium Web Driver',
+    'ReactJS',
+    'Machine Learning',
+    'SQL',
+    'Oracle',
+    'DBA',
+    'JavaScript',
+    'JQuery',
+  ];
+
 
   questForm: FormGroup;
 

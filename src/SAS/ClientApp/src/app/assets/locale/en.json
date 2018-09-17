@@ -199,7 +199,12 @@
       "CorrectAnswer":"Select Correct Answer",
       "SelectOrder":"Select Correct Order",
       "WriteYourAnswer":"Write your answer here",
-      "OptionAndCorrectOption":"Please enter answer option and check correct answer"
+      "OptionAndCorrectOption":"Please enter answer option and check correct answer",
+      "UploadQuestion":"Upload Questions using Excel",
+      "Upload":"Upload",
+      "Preiview":"Preview",
+      "InstructionsAndTnC":"Instruction and Term & Conditions",
+      "Start":"Start"
     },
     "palceholdertext":{
       "NewQuestion":"Please enter question"
