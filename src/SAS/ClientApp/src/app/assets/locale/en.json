@@ -204,7 +204,9 @@
       "Upload":"Upload",
       "Preiview":"Preview",
       "InstructionsAndTnC":"Instruction and Term & Conditions",
-      "Start":"Start"
+      "Start":"Start",
+      "Softvision":"Welcome to Softvision Online Exam",
+      "Next":"Next"
     },
     "palceholdertext":{
       "NewQuestion":"Please enter question"

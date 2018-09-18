@@ -36,8 +36,9 @@ export class AppComponent implements OnInit, AfterViewInit {
   shouldShowLoginModal: boolean;
   removePrebootScreen: boolean;
   newNotificationCount = 0;
-  appTitle = "SAS Application";
-  appLogo = require("../assets/images/logo-white.png");
+  appTitle = "SAS";
+  //appLogo = require("../assets/images/logo-white.png");
+  appLogo = require("../assets/images/Softvision.jpg");
 
   stickyToasties: number[] = [];
 

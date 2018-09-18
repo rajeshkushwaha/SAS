@@ -3,14 +3,13 @@ import { AlertService } from '../../services/alert.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-instructions',
-  templateUrl: './instructions.component.html',
-  styleUrls: ['./instructions.component.css']
+  selector: 'app-starttest',
+  templateUrl: './starttest.component.html',
+  styleUrls: ['./starttest.component.css']
 })
-export class InstructionsComponent implements OnInit {
+export class StarttestComponent implements OnInit {
 
-  instructionForm: FormGroup;
-  appLogo = require("../../assets/images/Softvision-Online-Instruction.jpg");
+  startTestForm: FormGroup;
   expertiesLevel = [
     {
       "name": "expertieslevelBeginner",
@@ -56,14 +55,14 @@ export class InstructionsComponent implements OnInit {
   constructor(private alertServices: AlertService, private _formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.instructionForm = this._formBuilder.group({
+    this.startTestForm = this._formBuilder.group({
       technology: [null, [Validators.required]],
       experties: [null, [Validators.required]]
     })
   }
 
   onSubmit(){  
-    console.log(this.instructionForm.value);
+    console.log(this.startTestForm.value);
   }
 
 }

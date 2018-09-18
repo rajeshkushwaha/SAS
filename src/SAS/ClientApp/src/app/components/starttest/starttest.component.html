@@ -1,0 +1,43 @@
+<div class="vertical-center-flex">
+    <div class="login-container center-block">
+      <!-- <div class="panel panel-primary boxshadow"> -->
+        <form [formGroup]="startTestForm" (ngSubmit)="onSubmit()">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{'addQuestion.management.InstructionsAndTnC' | translate}}</h3>
+            </div>
+            <div class="panel-body">
+              <div class="col-md-8 col-md-offset-2">
+                <div class="form-group has-feedback">
+                  <div class="row control-box">
+                    <div class="col-sm-12">
+                      <label for="technology">{{'addQuestion.management.Technology' | translate}}</label>
+                      <select class="selectpicker form-control" data-live-search="true" data-actions-box="false"
+                        data-live-search-placeholder="Search..." bootstrapSelect title="Select Technology"
+                        formControlName="technology">
+                        <option *ngFor="let technology of technologies" [value]="technology">{{technology}}</option>
+                      </select>
+                    </div>
+  
+                    <div class="col-sm-12">
+                      <label for="experties">{{'addQuestion.management.Expertieslevel' | translate}}</label>
+                      <select class="selectpicker form-control" data-live-search="true" data-actions-box="false"
+                        data-live-search-placeholder="Search..." bootstrapSelect title="Select Experties level"
+                        formControlName="experties">
+                        <option *ngFor="let expert of expertiesLevel" [value]="expert.name">{{expert.value}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>          
+            
+            <div class="btn-group btn-group-justified text-center spcing" *ngIf="startTestForm.controls['technology'].valid && startTestForm.controls['experties'].valid">
+              <button class="form-control1" type="submit">{{'addQuestion.management.Start' | translate}}</button>                        
+              <br/>
+            </div>          
+          </div>
+        </form>
+      <!-- </div> -->
+    </div>
+  </div>

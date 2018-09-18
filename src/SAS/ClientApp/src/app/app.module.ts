@@ -67,6 +67,7 @@ import { UploadquestionComponent } from './components/questionadmin/uploadquesti
 import { QuestionService } from "./services/question.service";
 import { QuestionEndpoint } from "./services/question-endpoint.service";
 import { InstructionsComponent } from './components/instructions/instructions.component';
+import { StarttestComponent } from './components/starttest/starttest.component';
 
 
 @NgModule({
@@ -117,7 +118,8 @@ import { InstructionsComponent } from './components/instructions/instructions.co
     AddquestionComponent,
     ViewquestionComponent,
     UploadquestionComponent,
-    InstructionsComponent
+    InstructionsComponent,
+    StarttestComponent
   ],
   providers: [
     { provide: 'BASE_URL', useFactory: getBaseUrl },
