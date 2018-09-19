@@ -36,7 +36,7 @@ namespace SAS.Controllers
         [ProducesResponseType(201, Type = typeof(QuestionViewModel))]
         [ProducesResponseType(400)]
         [ProducesResponseType(403)]
-        public async Task<Question> AddQuestion([FromBody] QuestionViewModel question){
+        public async Task<int> AddQuestion([FromBody] QuestionViewModel question){
             Question quest = new Question();
             Mapper.Map<QuestionViewModel, Question>(question, quest);
             //var result = 
@@ -49,33 +49,11 @@ namespace SAS.Controllers
         [ProducesResponseType(201, Type = typeof(QuestionViewModel))]
         [ProducesResponseType(400)]
         [ProducesResponseType(403)]
-        public async Task<Question> UploadQuestions([FromBody] QuestionViewModel question){             
-            Question quest = new Question();
-            Mapper.Map<QuestionViewModel, Question>(question, quest);            
-            return  await _unitOfWork.Questions.SetQuestion(quest);            
+        public async Task<int> UploadQuestions([FromBody] List<QuestionViewModel> listOfQuestions){             
+            List<Question> quest = new List<Question>();
+            Mapper.Map<List<QuestionViewModel>, List<Question>>(listOfQuestions, quest);            
+            return  await _unitOfWork.Questions.SetUploadedQuestion(quest);            
         }
-
-        // private void MyMethod(Microsoft.AspNetCore.Http.HttpContext context){
-        //     HttpResponseMessage result = null;
-        //     var httpRequest = context.Request;
-        //     if (httpRequest.Files.Count > 0)
-        //     {
-        //         var docfiles = new List<string>();
-        //         foreach (string file in httpRequest.Files)
-        //         {
-        //             var postedFile = httpRequest.Files[file];
-        //             var filePath = HttpContext.Current.Server.MapPath("~/" + postedFile.FileName);
-        //             postedFile.SaveAs(filePath);
-        //             docfiles.Add(filePath);
-        //         }
-        //         result = Request.CreateResponse(HttpStatusCode.Created, docfiles);
-        //     }
-        //     else
-        //     {
-        //         result = Request.CreateResponse(HttpStatusCode.BadRequest);
-        //     }
-        // }
-
 
         [HttpGet("getquestionbyid")]
         //[Authorize(Authorization.Policies.ManageAllUsersPolicy)]

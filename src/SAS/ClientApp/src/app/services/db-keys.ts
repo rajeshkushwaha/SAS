@@ -25,4 +25,8 @@ export class DBkeys {
     public static readonly SHOW_DASHBOARD_NOTIFICATIONS = "show_dashboard_notifications";
     public static readonly SHOW_DASHBOARD_TODO = "show_dashboard_todo";
     public static readonly SHOW_DASHBOARD_BANNER = "show_dashboard_banner";
+
+    //Below 2 keys will be used to get questions from DB based on technolgy and experties level
+    public static EXPERTIES_LEVEL = "experties_level";
+    public static TECHNOLOGY_SELECTED = "technology_selected";
 }

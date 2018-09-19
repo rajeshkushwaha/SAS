@@ -19,7 +19,15 @@ namespace DAL.Repositories.Interfaces
         /// <param name="question">question model</param>
         /// <returns></returns>
         //Question SetQuestion(Question question);
-        Task<Question> SetQuestion(Question question);
+        Task<int> SetQuestion(Question question);
+
+        /// <summary>
+        /// Add new question
+        /// </summary>
+        /// <param name="listOfQuestions">list of question model</param>
+        /// <returns></returns>
+        //Question SetQuestion(Question question);
+        Task<int> SetUploadedQuestion(List<Question> listOfQuestions);
 
         /// <summary>
         /// This will return all questions

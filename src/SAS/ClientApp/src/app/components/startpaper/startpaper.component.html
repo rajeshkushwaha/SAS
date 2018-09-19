@@ -1,0 +1,54 @@
+<div class="vertical-center-flex">
+  <div class="login-container center-block">
+    <!-- <div class="panel panel-primary boxshadow"> -->
+    <form [formGroup]="startTestForm" (ngSubmit)="onSubmit()">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><b>Question </b> What is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is
+            HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is
+            HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is
+            HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is
+            HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is
+            HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is
+            HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is
+            HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is
+            HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is
+            HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is
+            HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is
+            HTMLWhat is HTMLWhat is HTMLWhat is HTML1- What is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat
+            is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTMLWhat is HTML?'</h3>
+        </div>
+        <div class="panel-body">
+          <label for="technology">{{'addQuestion.management.Technology' | translate}}</label>
+          <select class="selectpicker form-control" data-live-search="true" data-actions-box="false"
+            data-live-search-placeholder="Search..." bootstrapSelect title="Select Technology" formControlName="technology">
+            <option *ngFor="let technology of technologies" [value]="technology">{{technology}}</option>
+          </select>
+          <label for="technology">{{'addQuestion.management.Technology' | translate}}</label>
+          <select class="selectpicker form-control" data-live-search="true" data-actions-box="false"
+            data-live-search-placeholder="Search..." bootstrapSelect title="Select Technology" formControlName="technology">
+            <option *ngFor="let technology of technologies" [value]="technology">{{technology}}</option>
+          </select>
+          <label for="technology">{{'addQuestion.management.Technology' | translate}}</label>
+          <select class="selectpicker form-control" data-live-search="true" data-actions-box="false"
+            data-live-search-placeholder="Search..." bootstrapSelect title="Select Technology" formControlName="technology">
+            <option *ngFor="let technology of technologies" [value]="technology">{{technology}}</option>
+          </select>
+          <label for="technology">{{'addQuestion.management.Technology' | translate}}</label>
+          <select class="selectpicker form-control" data-live-search="true" data-actions-box="false"
+            data-live-search-placeholder="Search..." bootstrapSelect title="Select Technology" formControlName="technology">
+            <option *ngFor="let technology of technologies" [value]="technology">{{technology}}</option>
+          </select>
+        </div>
+
+        <div class="btn-group btn-group-justified text-center spcing">
+          <!-- <a href="/login" class="form-control1" role="button">{{'addQuestion.management.Start' | translate}}</a> -->
+          <button class="form-control1" type="submit">{{'addQuestion.management.Back' | translate}}</button>
+          <button class="form-control1" type="submit">{{'addQuestion.management.Next' | translate}}</button>
+          <br />
+        </div>
+      </div>
+    </form>
+    <!-- </div> -->
+  </div>
+</div>

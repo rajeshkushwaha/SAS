@@ -206,7 +206,8 @@
       "InstructionsAndTnC":"Choose the TEST",
       "Start":"Start",
       "Softvision":"Welcome to Softvision Online Exam",
-      "Next":"Next"
+      "Next":"Next",
+      "Back":"Back"
     },
     "palceholdertext":{
       "NewQuestion":"Please enter question"

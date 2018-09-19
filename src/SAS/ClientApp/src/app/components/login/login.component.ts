@@ -10,6 +10,7 @@ import { AuthService } from "../../services/auth.service";
 import { ConfigurationService } from '../../services/configuration.service';
 import { Utilities } from '../../services/utilities';
 import { UserLogin } from '../../models/user-login.model';
+import { StarttestserviceService } from "../../services/starttestservice.service";
 
 @Component({
   selector: "app-login",
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   isModal = false;
 
 
-  constructor(private alertService: AlertService, private authService: AuthService, private configurations: ConfigurationService) {
+  constructor(private alertService: AlertService, private authService: AuthService, private configurations: ConfigurationService, private _sahredDataService: StarttestserviceService) {
 
   }
 
@@ -74,6 +75,9 @@ export class LoginComponent implements OnInit, OnDestroy {
 
 
   login() {
+    debugger;
+    let sharedData =this._sahredDataService.getData();
+    console.log(sharedData);
     this.isLoading = true;
     this.alertService.startLoadingMessage("", "Attempting login...");
 

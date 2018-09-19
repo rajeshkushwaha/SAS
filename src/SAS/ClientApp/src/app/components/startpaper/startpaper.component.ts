@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertService } from '../../services/alert.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import {Router} from '@angular/router';
+import { StarttestserviceService } from '../../services/starttestservice.service';
+import { Router }                 from '@angular/router';
 
 @Component({
-  selector: 'app-instructions',
-  templateUrl: './instructions.component.html',
-  styleUrls: ['./instructions.component.css']
+  selector: 'app-startpaper',
+  templateUrl: './startpaper.component.html',
+  styleUrls: ['./startpaper.component.css']
 })
-export class InstructionsComponent implements OnInit {
+export class StartpaperComponent implements OnInit {
 
-  instructionForm: FormGroup;
-  appLogo = require("../../assets/images/Softvision-Online-Instruction.jpg");
+  startTestForm: FormGroup;
   expertiesLevel = [
     {
       "name": "expertieslevelBeginner",
@@ -54,10 +54,11 @@ export class InstructionsComponent implements OnInit {
     'JQuery',
   ];
 
-  constructor(private alertServices: AlertService, private _formBuilder: FormBuilder,private _router:Router) { }
+  constructor(private alertServices: AlertService, private _formBuilder: FormBuilder, private _startTestService:StarttestserviceService,
+    private _router:Router) { }
 
   ngOnInit() {
-    this.instructionForm = this._formBuilder.group({
+    this.startTestForm = this._formBuilder.group({
       technology: [null, [Validators.required]],
       experties: [null, [Validators.required]]
     })
@@ -65,8 +66,9 @@ export class InstructionsComponent implements OnInit {
 
   onSubmit(){  
     debugger;
-    this._router.navigate(['/starttest']);
-    console.log(this.instructionForm.value);
+    this._startTestService.saveData(this.startTestForm.value.experties,this.startTestForm.value.technology)
+    this._router.navigate(["/login"]);
+    console.log(this.startTestForm.value);
   }
 
 }

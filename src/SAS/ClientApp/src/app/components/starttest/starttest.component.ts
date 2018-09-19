@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertService } from '../../services/alert.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { StarttestserviceService } from '../../services/starttestservice.service';
+import { Router }                 from '@angular/router';
 
 @Component({
   selector: 'app-starttest',
@@ -52,7 +54,8 @@ export class StarttestComponent implements OnInit {
     'JQuery',
   ];
 
-  constructor(private alertServices: AlertService, private _formBuilder: FormBuilder) { }
+  constructor(private alertServices: AlertService, private _formBuilder: FormBuilder, private _startTestService:StarttestserviceService,
+    private _router:Router) { }
 
   ngOnInit() {
     this.startTestForm = this._formBuilder.group({
@@ -62,6 +65,9 @@ export class StarttestComponent implements OnInit {
   }
 
   onSubmit(){  
+    debugger;
+    this._startTestService.saveData(this.startTestForm.value.experties,this.startTestForm.value.technology)
+    this._router.navigate(["/login"]);
     console.log(this.startTestForm.value);
   }
 

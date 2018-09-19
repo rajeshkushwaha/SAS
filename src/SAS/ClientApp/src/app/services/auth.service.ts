@@ -17,6 +17,7 @@ import { Utilities } from './utilities';
 import { LoginResponse, IdToken } from '../models/login-response.model';
 import { User } from '../models/user.model';
 import { Permission, PermissionNames, PermissionValues } from '../models/permission.model';
+import { StarttestserviceService } from './starttestservice.service';
 
 @Injectable()
 export class AuthService {
@@ -27,13 +28,15 @@ export class AuthService {
   public loginRedirectUrl: string;
   public logoutRedirectUrl: string;
 
+
   public reLoginDelegate: () => void;
 
   private previousIsLoggedInCheck = false;
   private _loginStatus = new Subject<boolean>();
 
 
-  constructor(private router: Router, private configurations: ConfigurationService, private endpointFactory: EndpointFactory, private localStorage: LocalStoreManager) {
+  constructor(private router: Router, private configurations: ConfigurationService, private endpointFactory: EndpointFactory, 
+    private localStorage: LocalStoreManager, private _startTestData:StarttestserviceService) {
     this.initializeLoginStatus();
   }
 
@@ -177,6 +180,12 @@ export class AuthService {
       this.localStorage.saveSyncedSessionData(permissions, DBkeys.USER_PERMISSIONS);
       this.localStorage.saveSyncedSessionData(user, DBkeys.CURRENT_USER);
     }
+    
+    debugger;
+    let expertieslevel = this._startTestData.getData().expertieslevel;
+    let technologySelected = this._startTestData.getData().technology;
+    this.localStorage.saveSyncedSessionData(expertieslevel,DBkeys.EXPERTIES_LEVEL);
+    this.localStorage.saveSyncedSessionData(technologySelected,DBkeys.TECHNOLOGY_SELECTED);
 
     this.localStorage.savePermanentData(rememberMe, DBkeys.REMEMBER_ME);
   }

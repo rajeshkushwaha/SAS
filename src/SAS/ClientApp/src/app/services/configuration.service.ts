@@ -34,7 +34,7 @@ export class ConfigurationService {
 
     //***Specify default configurations here***
     public static readonly defaultLanguage: string = "en";
-    public static readonly defaultHomeUrl: string = "/";
+    public static readonly defaultHomeUrl: string = "/home";
     public static readonly defaultTheme: string = "Default";
     public static readonly defaultShowDashboardStatistics: boolean = true;
     public static readonly defaultShowDashboardNotifications: boolean = true;

@@ -16,12 +16,15 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { InstructionsComponent } from './components/instructions/instructions.component';
 import { StarttestComponent } from './components/starttest/starttest.component';
+import { StartpaperComponent } from './components/startpaper/startpaper.component';
 
 
 const routes: Routes = [
-  { path: "", component: HomeComponent, canActivate: [AuthGuard], data: { title: "Home" } },
-  { path: "instruction", component: InstructionsComponent, data: { title: "Instructions" } },
-  { path: "starttest", component: StarttestComponent, data: { title: "Instructions" } },
+  { path: "", component: InstructionsComponent, data: { title: "Instructions" } },
+  { path: "home", component: HomeComponent, canActivate: [AuthGuard], data: { title: "Home" } },
+  { path: "paper", component: StartpaperComponent, data: { title: "Paper" } },
+  //{ path: "instruction", component: InstructionsComponent, data: { title: "Instructions" } },
+  { path: "starttest", component: StarttestComponent, data: { title: "Begin Test" } },
   { path: "login", component: LoginComponent, data: { title: "Login" } },  
   { path: "questions", component: QuestiontabComponent, canActivate: [AuthGuard], data: { title: "Questions" } },    
   { path: "settings", component: SettingsComponent, canActivate: [AuthGuard], data: { title: "Settings" } },
