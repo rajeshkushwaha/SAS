@@ -74,24 +74,6 @@ namespace SAS.Controllers
         public IEnumerable<Question> GetAllQuestions()
         {
             return _unitOfWork.Questions.GetAllQuestion();
-        }
-
-
-        //[HttpGet("users/username/{userName}")]
-        //[ProducesResponseType(200, Type = typeof(UserViewModel))]
-        //[ProducesResponseType(403)]
-        //[ProducesResponseType(404)]
-        //public async Task<IActionResult> GetUserByUserName(string userName)
-        //{
-        //    ApplicationUser appUser = await _accountManager.GetUserByUserNameAsync(userName);
-
-        //    if (!(await _authorizationService.AuthorizeAsync(this.User, appUser?.Id ?? "", AccountManagementOperations.Read)).Succeeded)
-        //        return new ChallengeResult();
-
-        //    if (appUser == null)
-        //        return NotFound(userName);
-
-        //    return await GetUserById(appUser.Id);
-        //}
+        }        
     }
 }

@@ -41,21 +41,21 @@ export class UploadquestionComponent implements OnInit {
   }
 
 
-  onSubmit() {
-    debugger;
+  onSubmit() {    
     console.log("Hello Rajesh");
     if (this.uploadQuestionForm != null || this.uploadQuestionForm != undefined) {
       console.log(this.uploadQuestionForm.value);
-      if ((this.uploadQuestionForm != null || this.uploadQuestionForm != undefined) && (this.uploadQuestionForm.value.question != null || this.uploadQuestionForm.value.question != undefined)) {
-        
+      if ((this.uploadQuestionForm != null || this.uploadQuestionForm != undefined) && (this.uploadQuestionForm.value.question != null || this.uploadQuestionForm.value.question != undefined)) {        
         this.alertService.startLoadingMessage("Uploading Questions...");
-
-
         let questions: Array<Question> = new Array<Question>();       
 
+        if(this.data.length==0){
+          this.previewFile(false);
+          console.log("Rajesh, This person didn't used preview feature");
+        }
+
         for (let i = 1; i < this.data.length; i++) {
-          let question: Question = new Question();
-          
+          let question: Question = new Question();          
           //We need to check question type and send correct value, right now this is hard coded
           question = <Question>({
             question: this.data[i][0].toString().trim(),            
@@ -69,22 +69,22 @@ export class UploadquestionComponent implements OnInit {
               option4: this.data[i][4].toString().trim(),
               correctanswermcsa: this.data[i][4].toString().trim()
             })
-          });
-          
+          });          
           questions.push(question);
         }
-        console.log(questions);
+
         debugger;
         this.questionService.setUploadQuestion(questions).subscribe(quest => this.saveSuccessHelper(quest), error => this.saveFailedHelper(error));
+
+        //Remove the value of Array once uploded.
+        questions=[];
       }
       else {
         this.alertService.startLoadingMessage("Please select a file...");
         this.alertService.resetStickyMessage();
       }
     }
-  }
-
-  
+  } 
 
   private saveSuccessHelper(ques?: Question[]) {        
     this.isSaving = false;
@@ -95,6 +95,8 @@ export class UploadquestionComponent implements OnInit {
 
     if (this.changesSavedCallback)
       this.changesSavedCallback();
+    //Reset form once upload successful
+    this.resetForm();
   }
 
   private saveFailedHelper(error: any) {
@@ -105,31 +107,37 @@ export class UploadquestionComponent implements OnInit {
 
     if (this.changesFailedCallback)
       this.changesFailedCallback();
+    
   }
 
-  previewFile() {
-    debugger;
-    //let files = (<HTMLInputElement>document.getElementById("question")).files;
+  resetForm(replace = false) {
+    if (!replace) {
+      this.uploadQuestionForm.reset();
+    }
+    else {
+      this.formResetToggle = false;
 
-    //let files = document.getElementById("question");
+      setTimeout(() => {
+        this.formResetToggle = true;
+      });
+    }
+  }
+
+  previewFile(replace = true) {    
     let files = this.files;
 	  const reader: FileReader = new FileReader();
-  
     if(files!=null){
       reader.onload = (e: any) => {
         const bstr: string = e.target.result;
         const wb: XLSX.WorkBook = XLSX.read(bstr, { type: 'binary' });
         const wsname: string = wb.SheetNames[0];
-        const ws: XLSX.WorkSheet = wb.Sheets[wsname];
-  
+        const ws: XLSX.WorkSheet = wb.Sheets[wsname];  
         this.data = <AOA>(XLSX.utils.sheet_to_json(ws, { header: 1 }));
       };
       reader.readAsBinaryString(files[0]);
-      this.openModal();
-    }
-    // if (files.length !== 1) {
-    //   throw new Error('Cannot use multiple files');
-    // }    
+      if(replace)
+        this.openModal();
+    }      
   }
 
   openModal(){
@@ -168,11 +176,8 @@ export class UploadquestionComponent implements OnInit {
       id: this.createGuid()
     }
 
-    fData.append("data", JSON.stringify(_data));
-    // this._service.uploadFile(fData).subscribe(
-    //     response => console.log(response),
-    //     error => console.log(error)
-    // )
+    //This can be used in future in case if we want to upload file.
+    //fData.append("data", JSON.stringify(_data));    
   }
 
   //use for generating a guid
@@ -182,8 +187,6 @@ export class UploadquestionComponent implements OnInit {
       return v.toString(16);
     });
   }
-
-  //var guid = createGuid();
 
   validateFile(name: String) {
     var ext = name.substring(name.lastIndexOf('.') + 1);
