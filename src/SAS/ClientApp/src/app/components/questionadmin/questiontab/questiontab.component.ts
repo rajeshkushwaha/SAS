@@ -11,6 +11,11 @@ import { fadeInOut } from '../../../services/animations';
 
 import { AccountService } from "../../../services/account.service";
 import { Permission } from '../../../models/permission.model';
+import { ViewquestionComponent } from '../viewquestion/viewquestion.component';
+
+import { QuestionService } from '../../../services/question.service';
+import { Question } from '../../../models/question.model';
+import { AlertService } from '../../../services/alert.service';
 
 @Component({
   selector: 'questiontab',
@@ -26,14 +31,18 @@ export class QuestiontabComponent implements OnInit {
 
   fragmentSubscription: any;
 
+  allQuestion:any;
+
   readonly addQuestionTab = "new";
   readonly viewQuestionTab = "view";
   readonly uploadTab = "upload";
+  private isGetting: boolean;
 
   @ViewChild("tab")
   tab: BootstrapTabDirective;
 
-  constructor(private route: ActivatedRoute, private accountService: AccountService) {
+  constructor(private route: ActivatedRoute, private accountService: AccountService,
+    private _questionService:QuestionService, private _alertService: AlertService) {
   }
 
   ngOnInit() {
@@ -44,8 +53,7 @@ export class QuestiontabComponent implements OnInit {
     this.fragmentSubscription.unsubscribe();
   }
 
-  showContent(anchor: string) {
-    debugger;
+  showContent(anchor: string) {    
     if ((this.isFragmentEquals(anchor, this.addQuestionTab) && !this.canViewUsers) ||
       (this.isFragmentEquals(anchor, this.viewQuestionTab) && !this.canViewRoles)||
       (this.isFragmentEquals(anchor, this.uploadTab) && !this.canViewRoles))
@@ -55,13 +63,21 @@ export class QuestiontabComponent implements OnInit {
   }
 
   isFragmentEquals(fragment1: string, fragment2: string) {
-debugger;
     if (fragment1 == null)
       fragment1 = "";
 
     if (fragment2 == null)
       fragment2 = "";
 
+      if(fragment1==this.viewQuestionTab && fragment2==this.viewQuestionTab){
+        console.log("We are going for view");
+        this.isGetting = true;
+        this._alertService.startLoadingMessage("Getting Questions...");
+        debugger;
+        this._questionService.getAllQuestions()
+        .subscribe(data=>this.allQuestion=data);
+        console.log(this.allQuestion);
+      }
     return fragment1.toLowerCase() == fragment2.toLowerCase();
   }
 
@@ -81,4 +97,7 @@ debugger;
     return this.accountService.userHasPermission(Permission.viewRolesPermission);
   }
 
+  onSelectChange($event){
+
+  }
 }

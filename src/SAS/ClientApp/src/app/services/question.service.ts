@@ -31,8 +31,7 @@ export class QuestionService{
         return this.accountEndpoint.getUserEndpoint<User>(userId);
       }
     
-      getUserAndRoles(userId?: string) {
-    
+      getUserAndRoles(userId?: string) {    
         return forkJoin(
           this.accountEndpoint.getUserEndpoint<User>(userId),
           this.accountEndpoint.getRolesEndpoint<Role[]>());
@@ -40,5 +39,9 @@ export class QuestionService{
 
       newQuestion(question:Question){
           return this.questionEndpoint.getNewQuestionEndpoint<Question>(question);
+      }
+
+      getAllQuestions(){
+        return this.questionEndpoint.getAllQuestionEndPoint();
       }
 }
