@@ -1,3 +1,19 @@
-<div *ngFor="let quest of allQuestion">
-  {{quest}}
-</div>
+<div>
+  <div class="row control-box">
+    <div class="col-sm-8">
+      <div class="form-group search-box">
+        <search-box (searchChange)="onSearchChanged($event)" placeholder="{{'addQuestion.management.Search' | translate}}">></search-box>
+      </div>
+    </div>
+  </div>
+
+  <ngx-datatable class="material colored-header sm table table-striped table-hover" 
+    [loadingIndicator]="loadingIndicator"
+    [rows]="questions" 
+    [rowHeight]="35" 
+    [headerHeight]="35" 
+    [footerHeight]="35" 
+    [columns]="columns" 
+    [scrollbarV]="true"
+    [columnMode]="'force'">
+  </ngx-datatable>  

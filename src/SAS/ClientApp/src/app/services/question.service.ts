@@ -41,7 +41,12 @@ export class QuestionService{
           return this.questionEndpoint.getNewQuestionEndpoint<Question>(question);
       }
 
+      setUploadQuestion(question:Question[]){
+        return this.questionEndpoint.setUploadQuestion<Question[]>(question);
+    }
+
       getAllQuestions(){
         return this.questionEndpoint.getAllQuestionEndPoint();
       }
+      //
 }

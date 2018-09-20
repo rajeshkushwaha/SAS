@@ -14,7 +14,7 @@
       <div class="row control-box">
         <div *ngIf="!uploadQuestionForm.controls['question'].invalid">
           <div class="col-sm-1">
-            <button class="btn btn-info" type="button">{{'addQuestion.management.Preiview' | translate}}</button>
+            <button class="btn btn-info" type="button" (click)="previewFile()">{{'addQuestion.management.Preiview' | translate}}</button>
           </div>
 
           <div class="col-sm-1">
@@ -29,3 +29,37 @@
     </div>
   </div>
 </form>
+
+<div id="previewTable" class="backdrop" [ngStyle]="{'display':display}">
+    <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">File Preview</h4>
+            <button type="button" class="close" (click)="closeModal()">&times;</button>
+          </div>
+          <div class="modal-body">
+            <table class="sjs-table table table-bordered table-hover">
+              <thead>
+                <tr *ngFor="let row of data | slice:0:1">
+                  <th *ngFor="let val of row">
+                    {{val}}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let row of data | slice:1">
+                  <td *ngFor="let val of row">
+                    {{val}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" (click)="closeModal()">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -135,7 +135,8 @@ export class UsersManagementComponent implements OnInit, AfterViewInit {
             this.accountService.getUsersAndRoles().subscribe(results => this.onDataLoadSuccessful(results[0], results[1]), error => this.onDataLoadFailed(error));
         }
         else {
-            this.accountService.getUsers().subscribe(users => this.onDataLoadSuccessful(users, this.accountService.currentUser.roles.map(x => new Role(x))), error => this.onDataLoadFailed(error));
+            this.accountService.getUsers().subscribe(users => 
+                this.onDataLoadSuccessful(users, this.accountService.currentUser.roles.map(x => new Role(x))), error => this.onDataLoadFailed(error));
         }
     }
 

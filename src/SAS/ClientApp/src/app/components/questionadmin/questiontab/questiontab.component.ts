@@ -13,9 +13,7 @@ import { AccountService } from "../../../services/account.service";
 import { Permission } from '../../../models/permission.model';
 import { ViewquestionComponent } from '../viewquestion/viewquestion.component';
 
-import { QuestionService } from '../../../services/question.service';
-import { Question } from '../../../models/question.model';
-import { AlertService } from '../../../services/alert.service';
+
 
 @Component({
   selector: 'questiontab',
@@ -36,13 +34,12 @@ export class QuestiontabComponent implements OnInit {
   readonly addQuestionTab = "new";
   readonly viewQuestionTab = "view";
   readonly uploadTab = "upload";
-  private isGetting: boolean;
+  
 
   @ViewChild("tab")
   tab: BootstrapTabDirective;
 
-  constructor(private route: ActivatedRoute, private accountService: AccountService,
-    private _questionService:QuestionService, private _alertService: AlertService) {
+  constructor(private route: ActivatedRoute, private accountService: AccountService) {
   }
 
   ngOnInit() {
@@ -69,15 +66,10 @@ export class QuestiontabComponent implements OnInit {
     if (fragment2 == null)
       fragment2 = "";
 
-      if(fragment1==this.viewQuestionTab && fragment2==this.viewQuestionTab){
-        console.log("We are going for view");
-        this.isGetting = true;
-        this._alertService.startLoadingMessage("Getting Questions...");
-        debugger;
-        this._questionService.getAllQuestions()
-        .subscribe(data=>this.allQuestion=data);
-        console.log(this.allQuestion);
-      }
+      // if(fragment1==this.viewQuestionTab && fragment2==this.viewQuestionTab){
+      //   console.log("We are going for view");
+      //   }
+
     return fragment1.toLowerCase() == fragment2.toLowerCase();
   }
 

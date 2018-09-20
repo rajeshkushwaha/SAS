@@ -86,11 +86,11 @@ namespace DAL.Repositories
                     transaction.Commit();
                     return returnData;
                 }
-                catch (Exception)
+                catch (Exception ex )
                 {
                     //Rollback
                     transaction.Rollback();
-                    throw;
+                    throw ex;
                 }
             }
 

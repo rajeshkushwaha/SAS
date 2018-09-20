@@ -84,6 +84,7 @@
     "DashboardBannerHint": "Show demo information banner widget on the dashboard",
     "ResetDefault": "Reset default",
     "SetDefault": "Set as default"
+    
   },
   "users": {
     "management": {
@@ -208,6 +209,12 @@
       "Softvision":"Welcome to Softvision Online Exam",
       "Next":"Next",
       "Back":"Back"
+    },
+    "viewquestion":{
+      "question":"Question",
+      "questiontype":"Question Type",
+      "expertieslevel":"Experties Level",
+      "technology":"Technology"
     },
     "palceholdertext":{
       "NewQuestion":"Please enter question"
